@@ -28,24 +28,6 @@ fizzy(number);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Practice Functions
 console.log("************************************************");
 console.log("Below are the practice functions from Unit 3 / Lesson 1 / Project 3.");
@@ -81,3 +63,77 @@ function counter(){
 counter();
 counter();
 counter();
+
+
+// Functions Problem Set
+console.log("************************************************");
+console.log("Below are the practice functions from Unit 3 / Lesson 1 / Project 5.");
+console.log('\n');
+
+// Addition
+// Below is addition being done with a custom reduce function.
+
+console.log("The below functions return the sum of elements in an array.");
+var vals = [10, 10, 10, 10, 10];
+function myReduce(array, myCallback, start){
+	var current = start;
+	for (var i = 0; i < array.length; i++){
+		current = myCallback(current, array[i]);
+	}
+	return current;
+}
+
+var final = myReduce(vals, function(a, b){
+	return (a + b);
+}, 0);
+
+console.log(final);
+
+
+// Determine whether a word is a pallindrome.
+
+console.log("This is the pallindrome problem set.");
+var pal = "racecar";
+var notPal = "oink";
+function pallindrome(word){
+	var reverse = "";
+	for (i = word.length -1; i >= 0; i--){
+		reverse += word.charAt(i);
+	}
+	if (word === reverse){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+console.log("Is", pal, "a pallindrome?", pallindrome(pal));
+console.log("Is", notPal, "a pallindrome?", pallindrome(notPal));
+
+
+var sentence = "I am happy you are reading this sentence";
+// QUESTION:  How could I have used the reduce function for this?
+// Would I have to create a new array whose elements are the lengths of each word?
+function stringTool(sentence){
+	var total = 0;
+	var wordsArray = sentence.split(" ");
+	var numWords = wordsArray.length;
+	var avgChars = 0;
+	for (var i = 0; i < wordsArray.length; i++){
+		total += wordsArray[i].length;
+	}
+	avgChars = total/numWords;
+	console.log("This string has", numWords, "words. The avg length of each word is", avgChars, "characters.");
+}
+stringTool(sentence);
+
+
+
+
+
+
+
+
+
+
+
